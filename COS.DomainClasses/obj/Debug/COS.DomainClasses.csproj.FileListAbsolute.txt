@@ -1,0 +1,9 @@
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\COS.DomainClasses.dll
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\COS.DomainClasses.pdb
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\EntityFramework.dll
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\EntityFramework.xml
+D:\MyGit\COS\COS.DomainClasses\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyGit\COS\COS.DomainClasses\obj\Debug\COS.DomainClasses.csprojResolveAssemblyReference.cache
+D:\MyGit\COS\COS.DomainClasses\obj\Debug\COS.DomainClasses.dll
+D:\MyGit\COS\COS.DomainClasses\obj\Debug\COS.DomainClasses.pdb

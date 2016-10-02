@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COS.DomainClasses", "COS.DomainClasses\COS.DomainClasses.csproj", "{6C6A5CD2-99AB-4149-B2D9-FFCAD8F3EB0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COS.DataLayer", "COS.DataLayer\COS.DataLayer.csproj", "{1FDE6FBE-A92E-4FFC-8B51-2B4D7F681C9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COS.UI", "COS.UI\COS.UI.csproj", "{44D48385-0E29-41BA-820D-8A488CAD28A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C6A5CD2-99AB-4149-B2D9-FFCAD8F3EB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C6A5CD2-99AB-4149-B2D9-FFCAD8F3EB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C6A5CD2-99AB-4149-B2D9-FFCAD8F3EB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C6A5CD2-99AB-4149-B2D9-FFCAD8F3EB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FDE6FBE-A92E-4FFC-8B51-2B4D7F681C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FDE6FBE-A92E-4FFC-8B51-2B4D7F681C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FDE6FBE-A92E-4FFC-8B51-2B4D7F681C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FDE6FBE-A92E-4FFC-8B51-2B4D7F681C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D48385-0E29-41BA-820D-8A488CAD28A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D48385-0E29-41BA-820D-8A488CAD28A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D48385-0E29-41BA-820D-8A488CAD28A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D48385-0E29-41BA-820D-8A488CAD28A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

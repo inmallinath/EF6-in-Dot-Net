@@ -1,1 +1,14 @@
 D:\MyGit\COS\COS.UI\bin\Debug\COS.UI.exe.config
+D:\MyGit\COS\COS.UI\bin\Debug\COS.UI.exe
+D:\MyGit\COS\COS.UI\bin\Debug\COS.UI.pdb
+D:\MyGit\COS\COS.UI\bin\Debug\COS.DataLayer.dll
+D:\MyGit\COS\COS.UI\bin\Debug\COS.DomainClasses.dll
+D:\MyGit\COS\COS.UI\bin\Debug\EntityFramework.dll
+D:\MyGit\COS\COS.UI\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyGit\COS\COS.UI\bin\Debug\COS.DataLayer.pdb
+D:\MyGit\COS\COS.UI\bin\Debug\COS.DomainClasses.pdb
+D:\MyGit\COS\COS.UI\bin\Debug\EntityFramework.xml
+D:\MyGit\COS\COS.UI\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyGit\COS\COS.UI\obj\Debug\COS.UI.csprojResolveAssemblyReference.cache
+D:\MyGit\COS\COS.UI\obj\Debug\COS.UI.exe
+D:\MyGit\COS\COS.UI\obj\Debug\COS.UI.pdb

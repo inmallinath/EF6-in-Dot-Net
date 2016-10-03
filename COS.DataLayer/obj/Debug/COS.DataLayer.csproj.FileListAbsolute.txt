@@ -1,4 +1,3 @@
-D:\MyGit\COS\COS.DataLayer\bin\Debug\COS.DataLayer.dll.config
 D:\MyGit\COS\COS.DataLayer\bin\Debug\COS.DataLayer.dll
 D:\MyGit\COS\COS.DataLayer\bin\Debug\COS.DataLayer.pdb
 D:\MyGit\COS\COS.DataLayer\bin\Debug\COS.DomainClasses.dll

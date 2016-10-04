@@ -16,11 +16,76 @@ namespace COS.UI
             Database.SetInitializer(new NullDatabaseInitializer<COSModelContext>());
             //InsertCustomer();
             //InsertMultipleCustomers();
-            SimpleCustomerQueries();
+            //SimpleCustomerQueries();
             //SimpleCustomerGraphQuery();
             //QueryAndUpdateCustomer();
             //DeleteCustomer();
+            //RetrieveDataWithFind();
+            //RetrieveDataWithStoredProc();
+            DeleteCustomerWithStoredProc();
             Console.ReadKey();
+        }
+
+        private static void DeleteCustomerWithStoredProc()
+        {
+            var keyVal = 6;
+            using (var context = new COSModelContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                context.Database.ExecuteSqlCommand("exec DeleteCustomerById {0}", keyVal);
+            }
+        }
+
+        private static void DeleteCustomer()
+        {
+            using (var context = new COSModelContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var customer = context.Customers.OrderByDescending(o=>o.CustomerId).FirstOrDefault();
+                context.Customers.Remove(customer);
+                //context.Entry(customer).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+        }
+
+        private static void RetrieveDataWithStoredProc()
+        {
+            using (var context = new COSModelContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var customers = context.Customers.SqlQuery("exec GetAllCustomers");
+                foreach (var customer in customers)
+                {
+                    Console.WriteLine(customer.FirstName);
+                }
+            }
+        }
+
+        private static void RetrieveDataWithFind()
+        {
+            var keyVal = 2;
+            using (var context = new COSModelContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var customer = context.Customers.Find(keyVal);
+                Console.WriteLine("After Find #1: " + customer.FirstName);
+
+                //Second time EF just pulls the record from in-memory
+                var anotherCustomer = context.Customers.Find(keyVal);
+                Console.WriteLine("After Find #2: " + anotherCustomer.FirstName);
+                customer = null;
+            }
+        }
+
+        private static void QueryAndUpdateCustomer()
+        {
+            using (var context = new COSModelContext())
+            {
+                context.Database.Log = Console.WriteLine;
+                var customer = context.Customers.FirstOrDefault();
+                customer.DateOfBirth = new DateTime(1977, 11, 24);
+                context.SaveChanges();
+            }
         }
 
         private static void SimpleCustomerQueries()
@@ -49,6 +114,8 @@ namespace COS.UI
                 }
             }
         }
+
+
 
         private static void InsertMultipleCustomers()
         {

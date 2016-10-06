@@ -1,8 +1,10 @@
 ﻿using COS.DataLayer;
 using COS.DomainClasses;
+using COS.DomainClasses.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +24,49 @@ namespace COS.UI
             //DeleteCustomer();
             //RetrieveDataWithFind();
             //RetrieveDataWithStoredProc();
-            DeleteCustomerWithStoredProc();
+            //DeleteCustomerWithStoredProc();
+            InsertCustomerWithOrder();
             Console.ReadKey();
+        }
+
+        private static void InsertCustomerWithOrder()
+        {
+            var products = GetProducts();
+            var product1 = products[0];
+            var product2 = products[1];
+            var customer = new Customer
+            {
+                FirstName = "Kavya",
+                LastName = "Igoor",
+                ContactDetail = new ContactDetail
+                {
+                    TwitterAlias = "kavynigure"
+                },
+                DateOfBirth = new DateTime(1975, 12, 19)
+            };
+            var order = new Order
+            {
+                DestinationLatLong = DbGeography.FromText("POINT(12.972442 77.580643)"),
+                OrderDate = DateTime.Now,
+                OrderSource = OrderSource.InPerson,
+                LineItems = { new LineItem { ProductId = product1.ProductId, Quantity = 2},
+                              new LineItem { ProductId = product2.ProductId, Quantity = 1}
+                            }
+            };
+            customer.Orders.Add(order);
+            using (var context = new COSModelContext())
+            {
+                context.Customers.Add(customer);
+                context.SaveChanges();
+            }
+    }
+
+        private static List<Product> GetProducts()
+        {
+            using (var context = new COSModelContext())
+            {
+                return context.Products.ToList();
+            }
         }
 
         private static void DeleteCustomerWithStoredProc()

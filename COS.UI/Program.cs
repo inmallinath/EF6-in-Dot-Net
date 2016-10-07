@@ -49,7 +49,7 @@ namespace COS.UI
                         .Include(c => c.Orders.Select(o => o.LineItems.Select(l => l.Product)))
                         .ToList();
 
-                var customer = eagerLoadGraph1[0];
+                var customer = eagerLoadGraph4[0];
             }
         }
 

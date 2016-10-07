@@ -28,7 +28,8 @@ namespace COS.UI
             //InsertCustomerWithOrder();
             //EagerLoading();
             //LoadWithProjection();
-            ExplicitLoading();
+            //ExplicitLoading();
+            LazyLoading();
 
             Console.ReadKey();
         }
@@ -88,6 +89,16 @@ namespace COS.UI
         }
 
         //Lazy Loading - implicitly using the virtual keyword
+        private static void LazyLoading()
+        {
+            using (var context = new COSModelContext())
+            {
+                context.Configuration.LazyLoadingEnabled = true;
+                var customer = context.Customers.OrderByDescending(c => c.CustomerId).First();
+                //context.Entry(customer).Collection(c => c.Orders).Load();
+                Console.WriteLine("Order Count for {0} : {1}", customer.FirstName, customer.Orders.Count);
+            }
+        }
 
         private static void InsertCustomerWithOrder()
         {

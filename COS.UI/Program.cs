@@ -25,9 +25,58 @@ namespace COS.UI
             //RetrieveDataWithFind();
             //RetrieveDataWithStoredProc();
             //DeleteCustomerWithStoredProc();
-            InsertCustomerWithOrder();
+            //InsertCustomerWithOrder();
+            //EagerLoading();
+            Projection();
+
             Console.ReadKey();
         }
+
+        //WHEN QUERYING
+        //Eager Loading - uses the include method
+
+        private static void EagerLoading()
+        {
+            using (var context = new COSModelContext())
+            {
+                //for help with lambda intellisense include using system.data.entity
+                //var eagerLoadGraph1 = context.Customers.Include(c=>c.Orders).ToList();
+                //var eagerLoadGraph2 = context.Customers.Include("Orders").ToList();
+                //var eagerLoadGraph3 = context.Customers.Include("Orders.LineItems").ToList();
+
+                var eagerLoadGraph4 = context.Customers
+                        .Where(c => c.Orders.Any())
+                        .Include(c => c.Orders.Select(o => o.LineItems.Select(l => l.Product)))
+                        .ToList();
+
+                var customer = eagerLoadGraph1[0];
+            }
+        }
+
+        //Projection - Specify the navigation properties and sort your results
+        private static void Projection()
+        {
+            using (var context = new COSModelContext())
+            {
+                var customerOrderGraph = context.Customers
+                    .Select(c => new { c, c.Orders })
+                    .ToList();
+                var customer = customerOrderGraph[2].c;
+
+                var customerWithFirstOrder =
+                    context.Customers
+                    .Select(c => new
+                    {
+                        c,
+                        FirstOrder = c.Orders.OrderBy(o => o.OrderDate).FirstOrDefault()
+                    })
+                    .ToList();
+            }
+        }
+
+        //AFTER THE FACT
+        //Explicit Loading - Explicitly by load method
+        //Lazy Loading - implicitly using the virtual keyword
 
         private static void InsertCustomerWithOrder()
         {
@@ -157,8 +206,6 @@ namespace COS.UI
                 }
             }
         }
-
-
 
         private static void InsertMultipleCustomers()
         {

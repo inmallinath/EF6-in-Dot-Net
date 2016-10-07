@@ -27,7 +27,8 @@ namespace COS.UI
             //DeleteCustomerWithStoredProc();
             //InsertCustomerWithOrder();
             //EagerLoading();
-            Projection();
+            //LoadWithProjection();
+            ExplicitLoading();
 
             Console.ReadKey();
         }
@@ -54,7 +55,7 @@ namespace COS.UI
         }
 
         //Projection - Specify the navigation properties and sort your results
-        private static void Projection()
+        private static void LoadWithProjection()
         {
             using (var context = new COSModelContext())
             {
@@ -76,6 +77,16 @@ namespace COS.UI
 
         //AFTER THE FACT
         //Explicit Loading - Explicitly by load method
+        private static void ExplicitLoading()
+        {
+            using (var context = new COSModelContext())
+            {
+                var customer = context.Customers.OrderByDescending(c=>c.CustomerId).First();
+                context.Entry(customer).Collection(c => c.Orders).Load();
+                Console.WriteLine("Order Count for {0} : {1}", customer.FirstName, customer.Orders.Count);
+            }
+        }
+
         //Lazy Loading - implicitly using the virtual keyword
 
         private static void InsertCustomerWithOrder()

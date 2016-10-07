@@ -32,25 +32,25 @@ namespace COS.UI
         private static void InsertCustomerWithOrder()
         {
             var products = GetProducts();
-            var product1 = products[0];
-            var product2 = products[1];
+            var product1 = products[2];
+            var product2 = products[3];
             var customer = new Customer
             {
-                FirstName = "Kavya",
+                FirstName = "Divya",
                 LastName = "Igoor",
                 ContactDetail = new ContactDetail
                 {
-                    TwitterAlias = "kavynigure"
+                    TwitterAlias = "divdeepmys"
                 },
-                DateOfBirth = new DateTime(1975, 12, 19)
+                DateOfBirth = new DateTime(1974, 07, 20)
             };
             var order = new Order
             {
                 DestinationLatLong = DbGeography.FromText("POINT(12.972442 77.580643)"),
                 OrderDate = DateTime.Now,
                 OrderSource = OrderSource.InPerson,
-                LineItems = { new LineItem { ProductId = product1.ProductId, Quantity = 2},
-                              new LineItem { ProductId = product2.ProductId, Quantity = 1}
+                LineItems = { new LineItem { ProductId = product1.ProductId, Quantity = 4},
+                              new LineItem { ProductId = product2.ProductId, Quantity = 6}
                             }
             };
             customer.Orders.Add(order);

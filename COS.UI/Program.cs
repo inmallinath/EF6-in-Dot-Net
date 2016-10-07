@@ -93,7 +93,7 @@ namespace COS.UI
         {
             using (var context = new COSModelContext())
             {
-                context.Configuration.LazyLoadingEnabled = true;
+                //context.Configuration.LazyLoadingEnabled = true;
                 var customer = context.Customers.OrderByDescending(c => c.CustomerId).First();
                 //context.Entry(customer).Collection(c => c.Orders).Load();
                 Console.WriteLine("Order Count for {0} : {1}", customer.FirstName, customer.Orders.Count);
